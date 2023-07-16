@@ -1,8 +1,15 @@
-import 'package:ava_project/login_screen.dart';
+import 'package:ava_project/login/login_screen.dart';
+import 'package:ava_project/routes.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:riverpod/riverpod.dart';
+
+final appProvider = StateProvider((ref) => 0);
 
 void main() {
-  runApp(const MyApp());
+  runApp(
+    const ProviderScope(child: MyApp()),
+  );
 }
 
 class MyApp extends StatelessWidget {
@@ -10,11 +17,9 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: Scaffold(
-        body: LoginScreen(),
-      ),
+      routes: appRoutes,
     );
   }
 }
