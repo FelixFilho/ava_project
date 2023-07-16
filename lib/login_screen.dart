@@ -22,19 +22,26 @@ class LoginFields extends StatelessWidget {
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        OutlinedButton(
-          style: ButtonStyle(
-            side: MaterialStatePropertyAll(
-              BorderSide(color: Colors.white),
-            ),
-          ),
-          onPressed: () {},
-          child: Text(
-            'Login',
-            style: TextStyle(color: Colors.white),
-          ),
-        )
+        loginButton('Login', () {}),
+        loginButton('Cadastrar', () {}),
       ],
+    );
+  }
+
+  Widget loginButton(String text, VoidCallback onPressed) {
+    return OutlinedButton(
+      style: const ButtonStyle(
+        side: MaterialStatePropertyAll(
+          BorderSide(color: Colors.white),
+        ),
+      ),
+      onPressed: onPressed,
+      child: Text(
+        text,
+        style: const TextStyle(
+          color: Colors.white,
+        ),
+      ),
     );
   }
 }
