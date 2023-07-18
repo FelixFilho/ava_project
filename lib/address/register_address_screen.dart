@@ -1,29 +1,26 @@
 import 'package:flutter/material.dart';
 
-class SignUpScreen extends StatefulWidget {
-  const SignUpScreen({super.key});
+class RegisterAddressScreen extends StatefulWidget {
+  const RegisterAddressScreen({super.key});
 
   @override
-  State<SignUpScreen> createState() => _SignUpScreenState();
+  State<RegisterAddressScreen> createState() => _RegisterAddressScreenState();
 }
 
-class _SignUpScreenState extends State<SignUpScreen> {
+class _RegisterAddressScreenState extends State<RegisterAddressScreen> {
   TextEditingController _controller = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
-      body: Container(
-        color: const Color(0xFFFFFDFD),
-        child: Center(
-          child: signupFields(),
-        ),
+      appBar: AppBar(
+        title: Text('Register Address Screen'),
       ),
+      body: addressFields(),
     );
   }
 
-  Widget signupFields() {
+  Widget addressFields() {
     return SizedBox(
       child: Container(
         padding: const EdgeInsets.only(left: 16, right: 16),
@@ -51,8 +48,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
             const SizedBox(height: 16),
             inputField('Confirmar Senha', _controller),
             const SizedBox(height: 40),
-            loginButton(
-                'Sign Up', () => Navigator.pushNamed(context, '/address')),
+            loginButton('Login', () {}),
           ],
         ),
       ),
