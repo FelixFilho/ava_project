@@ -1,15 +1,16 @@
 import 'package:flutter/material.dart';
 
 class InputField extends StatelessWidget {
-  final TextEditingController _controller = TextEditingController();
+  final TextEditingController controller;
   final String labelText;
 
-  InputField({super.key, required this.labelText});
+  const InputField(
+      {super.key, required this.labelText, required this.controller});
 
   @override
   Widget build(BuildContext context) {
     return TextField(
-      controller: _controller,
+      controller: controller,
       decoration: InputDecoration(
         labelText: labelText,
         labelStyle: TextStyle(fontSize: 14, color: Colors.grey.shade600),
