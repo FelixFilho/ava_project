@@ -54,7 +54,7 @@ class SQLiteService {
         User(
           email: maps.first['email'],
           password: maps.first['password'],
-          id: maps.first['id'],
+          id: maps.first['id'].toString(),
           name: maps.first['name'],
         ),
       );

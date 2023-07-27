@@ -1,8 +1,10 @@
 import 'dart:convert';
 
+import 'package:ava_project/core/cubit/session_cubit/session_cubit.dart';
 import 'package:ava_project/view/components/button.dart';
 import 'package:ava_project/view/components/input_field.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:http/http.dart' as http;
 
 class AddressScreen extends StatefulWidget {
@@ -95,6 +97,10 @@ class _AddressScreenState extends State<AddressScreen> {
                 Button('Consult', _consultCep),
                 Button('Register Address',
                     () => Navigator.pushNamed(context, '/register-address')),
+                Button(
+                  'Log Out',
+                  () => context.read<SessionCubit>().signOut(),
+                ),
               ],
             ),
           ),

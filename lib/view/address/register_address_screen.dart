@@ -14,7 +14,7 @@ class _RegisterAddressScreenState extends State<RegisterAddressScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Register Address Screen'),
+        title: const Text('Register Address Screen'),
       ),
       body: addressFields(),
     );

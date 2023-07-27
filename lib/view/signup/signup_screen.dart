@@ -32,7 +32,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
     );
   }
 
-  void registerUser(String name, String email, String password) async {
+  Future registerUser(String name, String email, String password) async {
     final SQLiteService _sqlService = GetIt.instance.get();
 
     await _sqlService.insertUser(
@@ -69,7 +69,12 @@ class _SignUpScreenState extends State<SignUpScreen> {
               controller: _confirmPasswordController,
             ),
             const SizedBox(height: 40),
-            Button('Sign Up', () => Navigator.pushNamed(context, '/address')),
+            Button('Sign Up', () async {
+              await registerUser(_nameController.text, _emailController.text,
+                  _passwordController.text);
+
+              Navigator.pop(context);
+            }),
           ],
         ),
       ),
